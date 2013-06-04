@@ -1,0 +1,227 @@
+\documentclass{res}
+%
+% \usepackage[paper=letterpaper,left=1.0in,right=1.0in,top=1.0in,bottom=1.0in,]{geometry}
+% \usepackage{res}
+%
+\usepackage{ifthen}              %% if-then-else arguments
+\usepackage{paralist,array}      %% enhancements to array environment
+\usepackage{float,multirow,longtable}  %% multipage tables, multirow cells
+\usepackage{lscape,rotating}     %% allows for landscape tables and figures
+\usepackage{color,url}           %% allows for colors and easy formatting of URL's
+\usepackage{amsmath,amssymb}     %% AMS math macros; esp. \text{} in math environment 
+%%%%%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+
+\usepackage[T1]{fontenc} 
+
+\usepackage{scalefnt}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\newcommand{\tagf}[2][]{
+{\scalefont{0.8}
+\begin{tikzpicture}[baseline={(TAG.base)}]
+\node[draw,#1] (TAG) {#2};
+\node[font=\tiny,draw,#1] (TAG) {#2};
+\end{tikzpicture}
+}}
+
+
+
+%\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
+%\usepackage{newcent}   % uses new century schoolbook postscript font 
+\newsectionwidth{0pt}  % So the text is not indented under section headings
+\usepackage{fancyhdr}  % use this package to get a 2 line header
+\renewcommand{\headrulewidth}{0pt} % suppress line drawn by default by fancyhdr
+\setlength{\headheight}{22pt} % allow room for 2-line header
+\setlength{\headsep}{24pt}  % space between header and text
+\setlength{\headheight}{24pt} % allow room for 2-line header
+\pagestyle{fancy}     % set pagestyle for document
+% \usepackage{hyperref}
+\rhead{ {\it My.Name.GoesHere}\\{\it p. \thepage} } % put text in header (right side)
+\cfoot{}                                     % the foot is empty
+\topmargin=-0.5in % start text higher on the page
+
+\makeatletter
+
+%% =============================================================================
+\def\output#1{\def\outp@t{#1}}   %% output format specifier  
+%% --- SET OUTPUT FORMAT ----- 
+\output{CV}  
+%% =============================================================================
+%
+%% =========================================
+%% definition of data names
+\def\myname#1{\def\myn@me{#1}}
+\def\raddress#1{\def\r@ddress{#1}}
+\def\waddress#1{\def\w@ddress{#1}}
+\def\educationa#1{\def\educ@tiona{#1}}
+\def\educationb#1{\def\educ@tionb{#1}}
+\def\educationc#1{\def\educ@tionc{#1}}
+
+\def\institutea#1{\def\in@titutea{#1}}
+\def\instituteb#1{\def\in@tituteb{#1}}
+\def\institutec#1{\def\in@titutec{#1}}
+
+\def\jobexpa#1{\def\j@bexpa{#1}}
+% 
+\def\gpaa#1{\def\gp@a{#1}}
+\def\gpab#1{\def\gp@b{#1}}
+\def\gpac#1{\def\gp@c{#1}}
+
+\def\dissertationa#1{\def\dissert@tiona{#1}}
+\def\dissertationb#1{\def\dissert@tionb{#1}}
+\def\dissertationc#1{\def\dissert@tionc{#1}}
+
+\def\skillsa#1{\def\skill@a{#1}}
+\def\skillsb#1{\def\skill@b{#1}}
+\def\skillsc#1{\def\skill@c{#1}}
+
+% \def\sponsornote#1{\def\spons@rnote{#1}}
+% \def\status#1{\def\st@tus{#1}}
+% \def\investigator#1{\def\investig@tor{#1}}
+% \def\CoI#1{\def\Co@I{#1}}
+% \def\location#1{\def\loc@tion{#1}}
+% \def\note#1{\def\n@te{#1}}
+%%% initialize data names
+  \myname{}
+  \raddress{}
+  \waddress{}
+  \educationa{}
+  \educationb{}
+  \educationc{}
+  \institutea{}
+  \instituteb{}
+  \institutec{}
+  \jobexpa{}
+  \gpaa{}
+  \gpab{}
+  \gpac{}
+  \dissertationa{}
+  \dissertationb{}
+  \dissertationc{}
+  \skillsa{}
+  \skillsb{}
+  \skillsc{}
+%% ------------------------------------------
+
+%%%
+\newcommand{\ms}{\rule[-0.5ex]{0pt}{3.5ex}}
+\newcommand{\ws}{\rule[-1.5ex]{0pt}{5ex}}
+%% ==========================================
+%% CV format for table descriptions
+%\newcommand{\FormFperiod}{Performance Period: }
+%% -------------------------------------
+\newcommand{\CVentry}{
+\rhead{ {\it My.Name.GoesHere}\\{\it p. \thepage} } % put text in header (right side)
+\cfoot{}                                     % the foot is empty
+\topmargin=-0.5in % start text higher on the page
+
+\Large
+\begin{center}
+ \myn@me
+\end{center}
+
+\normalsize
+\begin{center}
+ \begin{tabular}{ll}
+\r@ddress & \w@ddress
+\end{tabular}
+\end{center}
+\normalsize
+
+\name{\myn@me\\ [12pt]  }% the \\[12pt] adds a blank line after name
+
+\address{{\bf \w@ddress}}      
+
+\address{{\bf \r@ddress}}
+
+
+\vspace{0.2in}
+\section{\centerline{EDUCATION}} 
+\vspace{8pt}
+
+{\sl \textbf{\educ@tiona, \in@titutea, GPA: \gp@a}}\\
+\textbf{\dissert@tiona} \\
+{Skills:} \skill@a
+
+{\sl \textbf{\educ@tionb, \in@tituteb, GPA: \gp@b}}\\
+\textbf{\dissert@tionb} \\
+{Skills:} \skill@b
+
+{\sl \textbf{\educ@tionc, \in@titutec, Percentage: \gp@c}}\\
+\textbf{\dissert@tionc} \\
+{Skills:} \skill@c
+
+
+\section{\centerline{TEACHING, RESEARCH AND PROFESSIONAL EXPERIENCE}} 
+% \vspace{8pt}
+{\sl \in@titutea} \hfill        January 2013 - May 2013 \\
+Department of Awesomeness       \hfill   \textbf{(Distinguished Research fellow)}
+%   
+%    \begin{itemize} \itemsep -2pt % reduce space between items
+%    \item I am instructed an undergraduate class of 40 sophomore and junior level students
+%     in the mandatory course of thermodynamics. 
+%    \item Formulated novel course material to initiate a connection between
+%    thermodynamics theory and real world applications.
+%  \end{itemize}
+
+{\sl \in@tituteb} \hfill        Sep 2007 - Jul 2008 \\
+Department of Engineering       \hfill   \textbf{(Graduate Teaching Assistant)}
+%   
+%    \begin{itemize} \itemsep -2pt % reduce space between items
+%    \item Instructed a thermodynamics/fluid mechanics laboratory to 40 junior and senior level undergraduate students of mechanical engineering.
+%    \item Conducted regular maintenance of laboratory equipment. 
+%    \end{itemize}
+
+{\sl \in@titutec} \hfill        June 2009 - May 2013 \\
+Department of Engineering       \hfill   \textbf{(Graduate Research Assistant)}
+  
+%    \begin{itemize} \itemsep -2pt % reduce space between items
+%    \item Augmented available theory and developed new theory to treat evaporating liquid films in zero gravity for a NASA sponsored project. 
+%    \item Investigated the validity of the new theory and proposed its application it to coatings technology, life support systems, thermal cooling.
+%    \item Authored technical papers and presented results at international physics and engineering conferences.
+%  \end{itemize}
+
+{\sl \in@titutec} \hfill        Sep 2006 - May 2009 \\
+Department of Engineering       \hfill   \textbf{(Graduate Assistant)}
+  
+%    \begin{itemize} \itemsep -2pt % reduce space between items
+%    \item Conducted microscale fluid and thermal transport simulation to understand heat transfer characteristics and processes of phase change.
+%    \item Programmed a fortran numeric code and post-processor to assist with future simulations and data analysis.
+%    \end{itemize}
+{\sl \j@bexpa} \hfill        Sep 2005 - Apr 2006 \\
+Programming group       \hfill   \textbf{(Programmer Analyst)}
+%   
+
+
+
+  %% reset variables
+  \name{}
+  \raddress{}
+  \waddress{}
+  \educationa{}
+  \educationb{}
+  \educationc{}
+  \institutea{}
+  \instituteb{}
+  \institutec{}
+  \jobexpa{}
+%   \gpa1{}
+%   \gpa2{}
+%   \gpa3{}
+  \dissertationa{}
+  \dissertationb{}
+  \dissertationc{}
+  \skillsa{}
+  \skillsb{}
+  \skillsc{}
+}
+
+
+\ifthenelse{\equal{\outp@t}{CV}}{% true condition 
+  \def\entry{\CVentry}
+  }{}% leave false condition blank
+
+\makeatother
